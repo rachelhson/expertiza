@@ -3,6 +3,16 @@ describe 'SummaryHelper' do
   before(:each) do
     @sum = SummaryHelper::Summary.new
   end
+
+  describe '#calculate_avg_score_by_reviewee' do
+    context 'when avg_scores_by_round available' do
+      it 'sum score ' do
+        sum_scores = @sum.calculate_avg_score_by_reviewee([1,2,3,4,5],5)
+        expect(sum_scores).to eql(3.to_f)
+      end
+    end
+  end
+
   describe '#get_sentences' do
     context 'when the answer is nil' do
       it 'returns a nil object' do
